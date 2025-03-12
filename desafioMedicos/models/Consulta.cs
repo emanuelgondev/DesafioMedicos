@@ -49,6 +49,7 @@ namespace Consultas.Models
             SetNomeMedico(nomeMedico);
             SetParticular(particular);
             SetNumeroCarteirinha(numeroCarteirinha);
+            SetValorConsulta(valorConsulta);
         }
 
         public void SetDataConsulta(DateTime dataConsulta)
@@ -134,7 +135,9 @@ namespace Consultas.Models
         }
 
         public void SetValorConsulta(double valorConsulta)
-        {
+        {   
+            if (valorConsulta <= 0)
+                throw new ArgumentException("Valor zerado!");
             ValorConsulta = valorConsulta;
         }
     }
